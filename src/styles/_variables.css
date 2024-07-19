@@ -5,6 +5,9 @@
   --black: #000000;
 
   --gray-10: #eef1f1;
+  --gray-900: #222222;
+
+  --dark-900: #141719;
 
   --body-color: #555f62;
   --bg: #f9fafa;
@@ -19,6 +22,10 @@
   --fw-m: 500;
   /* font-weight Regular */
   --fw-r: 400;
+
+  --lh-100: 1;
+  --lh-170: 1.7;
+  --lh-200: 2;
 
   --font-default: "TBCX", sans-serif;
 
