@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "TBCX";
+  src: url("fonts/TBCXRegular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TBCX";
+  src: url("fonts/TBCXMedium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TBCX";
+  src: url("fonts/TBCXBold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}

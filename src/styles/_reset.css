@@ -1,0 +1,245 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+  transition: all 0.3s ease;
+}
+
+button,
+input,
+textarea,
+a {
+  transition: all 0.3s ease;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  outline: none;
+}
+
+article,
+aside,
+dialog,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  position: relative;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:not([href]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+label {
+  display: inline-block;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  white-space: normal;
+  outline: none;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  box-sizing: border-box;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  height: auto;
+}
+
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+input :focus {
+  outline: 0;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+button[type="button"]::-moz-focus-inner,
+button[type="reset"]::-moz-focus-inner,
+button[type="submit"]::-moz-focus-inner {
+  border-style: none;
+}
+
+button[type="button"]:focus,
+button[type="reset"]:focus,
+button[type="submit"]:focus {
+  outline: none;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 2px;
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(var(--black));
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: transparent;
+}

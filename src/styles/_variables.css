@@ -1,0 +1,27 @@
+@import url("_fonts.css");
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+
+  --gray-10: #eef1f1;
+
+  --body-color: #555f62;
+  --bg: #f9fafa;
+
+  --fs-20: 20px;
+  --fs-18: 18px;
+  --fs-16: 16px;
+
+  /* font-weight Bold */
+  --fw-bld: 700;
+  /* font-weight Medium */
+  --fw-m: 500;
+  /* font-weight Regular */
+  --fw-r: 400;
+
+  --font-default: "TBCX", sans-serif;
+
+  /* header paddings */
+  --h-x-p: 44px;
+}
