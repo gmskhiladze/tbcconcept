@@ -18,6 +18,10 @@ header {
     padding: 0 44px;
   }
 
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
   .header_content {
     display: flex;
     align-items: center;
