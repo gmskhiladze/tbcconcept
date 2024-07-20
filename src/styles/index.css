@@ -3,6 +3,7 @@
 
 @import url("components/helper.css");
 @import url("components/header.css");
+@import url("components/footer.css");
 
 body {
   font-size: var(--fs-16);
@@ -22,6 +23,35 @@ body {
 
     &.hidden {
       overflow: hidden;
+    }
+  }
+}
+
+.breadcrumbs {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  span {
+    color: var(--dark-900);
+    font-size: var(--fs-12);
+    font-weight: var(--fw-m);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  a {
+    color: var(--body-color);
+    font-size: var(--fs-12);
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--blue-100);
     }
   }
 }

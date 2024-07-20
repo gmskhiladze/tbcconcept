@@ -28,6 +28,26 @@ header {
       justify-content: space-between;
     }
 
+    .header_logo {
+      svg {
+        &:first-child {
+          display: none;
+
+          @media (max-width: 768px) {
+            display: block;
+          }
+        }
+
+        &:last-child {
+          display: block;
+
+          @media (max-width: 768px) {
+            display: none;
+          }
+        }
+      }
+    }
+
     .header_navigation {
       height: 100%;
       margin: 0 40px;
@@ -77,6 +97,10 @@ header {
             line-height: var(--lh-170);
             color: var(--gray-900);
             white-space: nowrap;
+
+            @media (max-width: 1440px) {
+              font-size: var(--fs-14);
+            }
           }
         }
 
