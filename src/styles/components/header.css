@@ -417,6 +417,7 @@ header {
 }
 
 .header_menu_mobile {
+  overflow-y: scroll;
   display: none;
   width: 100%;
   height: calc(100dvh - 80px);
@@ -427,7 +428,7 @@ header {
   left: 0;
   right: 0;
   flex-direction: column;
-  background-color: var(--bg);
+  background-color: var(--white);
 
   &.active {
     display: block;
