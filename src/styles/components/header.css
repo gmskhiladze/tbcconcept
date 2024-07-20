@@ -81,8 +81,9 @@ header {
         }
 
         .header_dropdown_list {
+          visibility: hidden;
           opacity: 0;
-          z-index: -100;
+          z-index: -1;
           min-height: 192px;
           min-width: 200px;
           position: absolute;
@@ -127,6 +128,8 @@ header {
           }
 
           .header_dropdown_list {
+            visibility: visible;
+
             transition-delay: 0.6s;
             opacity: 1;
             z-index: 102;
@@ -267,6 +270,7 @@ header {
         align-items: flex-start;
         gap: 5px;
         padding: 8px;
+        width: 36px;
         transition: all 0.25s;
         position: relative;
 
@@ -319,13 +323,13 @@ header {
   }
 
   .header_navigation_dropdown_bg {
-    visibility: hidden;
     opacity: 0;
-    z-index: -100;
+    visibility: hidden;
+    z-index: -1;
     min-height: 248px;
     background-color: var(--white);
     padding: 32px 0;
-    transition: 0.6s;
+    transition: opacity 0.6s;
     position: absolute;
     top: 80px;
     bottom: auto;
@@ -377,9 +381,9 @@ header {
     }
 
     &.active {
+      visibility: visible;
       z-index: 99;
       opacity: 1;
-      visibility: visible;
     }
   }
 }

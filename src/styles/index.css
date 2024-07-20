@@ -19,10 +19,10 @@ body {
     min-height: calc(100vh - 80px);
     width: 100%;
     overflow-x: hidden;
-  }
 
-  &.hidden {
-    overflow: hidden;
+    &.hidden {
+      overflow: hidden;
+    }
   }
 }
 
