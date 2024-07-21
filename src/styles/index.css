@@ -8,6 +8,7 @@
 @import url("components/plain_text.css");
 @import url("components/choose_package.css");
 @import url("components/statistics.css");
+@import url("components/digital_bank.css");
 
 body {
   font-size: var(--fs-16);
