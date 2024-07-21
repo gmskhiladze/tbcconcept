@@ -34,7 +34,8 @@
       flex-direction: column;
       gap: 24px;
 
-      h1 {
+      h1,
+      h2 {
         color: var(--white);
         font-size: var(--fs-28);
         font-weight: var(--fw-b);
