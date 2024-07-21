@@ -342,7 +342,7 @@ footer {
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 24px 15px;
+      padding: 24px 44px;
 
       a {
         color: var(--dark-900);
@@ -364,7 +364,7 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 16px;
-        padding: 0 16px 24px 16px;
+        padding: 0 44px 24px 44px;
 
         a {
           color: var(--body-color);
