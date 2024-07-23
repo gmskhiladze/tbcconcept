@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const swiperWrapper = document.querySelector(".swiper_wrapper");
   const swiperSlides = document.querySelectorAll(".swiper_slide");
+  const swiperActions = document.querySelector(".swiper_actions");
   const leftArrow = document.querySelector(".swiper_arrow-left");
   const rightArrow = document.querySelector(".swiper_arrow-right");
   const swiperScroll = document.querySelector(".swiper_scroll");
@@ -12,7 +13,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let prevTranslate = 0;
   let currentIndex = 0;
   const slideGap = 30;
-  const visibleSlidesCount = 3; // Set this dynamically based on your needs
+  let visibleSlidesCount = 3;
+
+  function updateVisibleSlidesCount() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      visibleSlidesCount = 1.5;
+    } else if (screenWidth < 1024) {
+      visibleSlidesCount = 2;
+    } else {
+      visibleSlidesCount = 3;
+    }
+  }
 
   function updateDimensions() {
     const slideWidth = swiperSlides[0].offsetWidth + slideGap;
@@ -92,6 +104,20 @@ document.addEventListener("DOMContentLoaded", () => {
     rightArrow.classList.toggle("disabled", currentIndex >= swiperSlides.length - visibleSlidesCount);
   }
 
+  function toggleSwiperActions() {
+    const screenWidth = window.innerWidth;
+
+    if (swiperSlides.length <= 3) {
+      swiperActions.style.display = "none";
+    } else {
+      swiperActions.style.display = "flex";
+    }
+
+    if ((screenWidth < 1024 && swiperSlides.length === 3) || swiperSlides.length === 2) {
+      swiperActions.style.display = "flex";
+    }
+  }
+
   swiperSlides.forEach((slide) => {
     slide.addEventListener("touchstart", touchStart());
     slide.addEventListener("touchend", touchEnd);
@@ -121,4 +147,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateScrollIndicator();
   updateArrows();
+
+  updateVisibleSlidesCount();
+  updateDimensions();
+  setPositionByIndex();
+  toggleSwiperActions();
+
+  // Update visibleSlidesCount and re-calculate on window resize
+  window.addEventListener("resize", () => {
+    updateVisibleSlidesCount();
+    updateDimensions();
+    setPositionByIndex();
+  });
 });
