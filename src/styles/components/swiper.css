@@ -6,10 +6,11 @@
     position: relative;
     margin-bottom: 40px;
     display: flex;
-    overflow-x: hidden;
+    gap: 30px;
+    transition: all 0.6s ease;
 
     .swiper_slide {
-      margin: 0 30px 0 0;
+      transition: all 0.6s ease;
       min-width: var(--swiper-width);
       min-height: 200px;
 
@@ -40,4 +41,8 @@
   .swiper_arrow {
     cursor: pointer;
   }
+}
+
+.grabbing {
+  cursor: grabbing;
 }
