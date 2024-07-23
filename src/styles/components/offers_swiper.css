@@ -1,0 +1,55 @@
+.offers_swiper {
+  padding: 60px 0;
+
+  @media (max-width: 1024px) {
+    padding: 50px 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+
+  .swiper_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    margin-bottom: 36px;
+
+    h2 {
+      color: var(--dark-900);
+      text-transform: uppercase;
+      font-size: var(--fs-24);
+      font-weight: var(--fw-b);
+      line-height: var(--lh-150);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--blue-400);
+      text-transform: uppercase;
+      font-size: var(--fs-14);
+      font-weight: var(--fw-b);
+      line-height: var(--lh-140);
+      transition: all 0.25s ease-in-out;
+
+      svg {
+        fill: var(--blue-400);
+        transition: all 0.25s ease-in-out;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: var(--blue-100);
+
+        /* svg {
+            fill: var(--gray-100);
+          } */
+      }
+    }
+  }
+}

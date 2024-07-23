@@ -126,9 +126,9 @@
               text-decoration: none;
               color: var(--gray-100);
 
-              svg {
+              /* svg {
                 fill: var(--gray-100);
-              }
+              } */
             }
           }
         }

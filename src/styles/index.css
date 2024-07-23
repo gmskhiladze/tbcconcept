@@ -9,6 +9,8 @@
 @import url("components/choose_package.css");
 @import url("components/statistics.css");
 @import url("components/digital_bank.css");
+@import url("components/swiper.css");
+@import url("components/offers_swiper.css");
 
 body {
   font-size: var(--fs-16);
