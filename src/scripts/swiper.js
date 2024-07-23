@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let prevTranslate = 0;
   let currentIndex = 0;
   const slideGap = 30;
-  const visibleSlidesCount = 3;
+  const visibleSlidesCount = 3; // Set this dynamically based on your needs
 
   function updateDimensions() {
     const slideWidth = swiperSlides[0].offsetWidth + slideGap;
@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
       currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
       swiperWrapper.style.transform = `translateX(${currentTranslate}px)`;
     }
-    updateArrows();
   }
 
   function getPositionX(event) {
@@ -77,14 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateScrollIndicator() {
     const { slideWidth } = updateDimensions();
-    const containerWidth = swiperScroll.offsetWidth;
-    const totalScrollableWidth = containerWidth;
-    const scrollWidth = totalScrollableWidth / visibleSlidesCount;
-    const scrollLeft = ((currentIndex * scrollWidth) / totalScrollableWidth) * containerWidth;
+    const totalSlides = swiperSlides.length;
+    const totalScrollableSlides = totalSlides - visibleSlidesCount;
 
-    console.log("====================================");
-    console.log(currentIndex * slideWidth);
-    console.log("====================================");
+    const scrollWidth = (swiperScroll.offsetWidth / totalSlides) * visibleSlidesCount;
+    const scrollLeft = (currentIndex / totalScrollableSlides) * (swiperScroll.offsetWidth - scrollWidth);
 
     topScroll.style.width = `${scrollWidth}px`;
     topScroll.style.transform = `translateX(${scrollLeft}px)`;
@@ -92,9 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function updateArrows() {
     const { maxTranslate } = updateDimensions();
-    currentIndex > 0 ? leftArrow.classList.remove("disabled") : leftArrow.classList.add("disabled");
-    currentTranslate > maxTranslate ? rightArrow.classList.remove("disabled") : rightArrow.classList.add("disabled");
-    currentIndex != swiperSlides.length - visibleSlidesCount ? rightArrow.classList.remove("disabled") : rightArrow.classList.add("disabled");
+    leftArrow.classList.toggle("disabled", currentIndex <= 0);
+    rightArrow.classList.toggle("disabled", currentIndex >= swiperSlides.length - visibleSlidesCount);
   }
 
   swiperSlides.forEach((slide) => {
@@ -116,11 +111,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   rightArrow.addEventListener("click", () => {
-    const { slideWidth, maxTranslate } = updateDimensions();
+    const { maxTranslate } = updateDimensions();
     if (currentTranslate > maxTranslate) {
       currentIndex += 1;
       setPositionByIndex();
     }
     updateArrows();
   });
+
+  updateScrollIndicator();
+  updateArrows();
 });
