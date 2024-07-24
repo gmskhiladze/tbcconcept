@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Function to initialize a swiper
   function initializeSwiper(swiperContainer) {
     const swiperWrapper = swiperContainer.querySelector(".swiper_wrapper");
     const swiperSlides = swiperContainer.querySelectorAll(".swiper_slide");
@@ -14,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentTranslate = 0;
     let prevTranslate = 0;
     let currentIndex = 0;
-    const slideGap = 30;
     let visibleSlidesCount = 3;
+    const slideGap = 30;
 
     function updateVisibleSlidesCount() {
       const screenWidth = window.innerWidth;
@@ -89,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateScrollIndicator() {
-      const { slideWidth } = updateDimensions();
+      // const { slideWidth } = updateDimensions();
       const totalSlides = swiperSlides.length;
       const totalScrollableSlides = totalSlides - visibleSlidesCount;
 
@@ -162,6 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const swiperContainers = document.querySelectorAll(".offers_swiper, .product_swiper");
+  const swiperContainers = document.querySelectorAll(".offers_swiper, .product_swiper, .awards_swiper");
   swiperContainers.forEach(initializeSwiper);
 });

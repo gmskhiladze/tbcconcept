@@ -10,7 +10,9 @@
 @import url("components/statistics.css");
 @import url("components/digital_bank.css");
 @import url("components/swiper.css");
-@import url("components/offers_swiper.css");
+@import url("components/offers.css");
+@import url("components/products.css");
+@import url("components/awards.css");
 
 body {
   font-size: var(--fs-16);

@@ -1,3 +1,61 @@
+.offers_swiper,
+.product_swiper,
+.awards_swiper {
+  padding: 60px 0;
+
+  @media (max-width: 1024px) {
+    padding: 50px 0;
+  }
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
+
+  .swiper_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+
+    margin-bottom: 36px;
+
+    h2 {
+      color: var(--dark-900);
+      text-transform: uppercase;
+      font-size: var(--fs-24);
+      font-weight: var(--fw-b);
+      line-height: var(--lh-150);
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--blue-400);
+      text-transform: uppercase;
+      font-size: var(--fs-14);
+      font-weight: var(--fw-b);
+      line-height: var(--lh-140);
+      transition: all 0.25s ease-in-out;
+
+      svg {
+        fill: var(--blue-400);
+        transition: all 0.25s ease-in-out;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: var(--blue-100);
+
+        /* svg {
+            fill: var(--gray-100);
+          } */
+      }
+    }
+  }
+}
+
 .swiper {
   width: 100%;
   overflow: hidden;
@@ -10,12 +68,18 @@
     transition: all 0.6s ease;
 
     .swiper_slide {
+      cursor: pointer;
       margin: 0 30px 0 0;
       transition: all 0.6s ease;
       min-width: var(--swiper-width);
       min-height: 200px;
+      border-radius: 8px;
+      background-color: var(--white);
+      transition: all 0.4s ease-in-out;
 
-      background-color: rebeccapurple;
+      &:hover {
+        box-shadow: 0 36px 40px -15px rgba(12, 43, 67, 0.07);
+      }
 
       &:last-of-type {
         margin: 0;
