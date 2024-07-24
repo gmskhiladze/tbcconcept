@@ -1,4 +1,5 @@
-.offers_swiper {
+.offers_swiper,
+.product_swiper {
   padding: 60px 0;
 
   @media (max-width: 1024px) {
