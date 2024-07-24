@@ -16,45 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
     let visibleSlidesCount = 3;
     const slideGap = 30;
 
-    function updateVisibleSlidesCount() {
+    const updateVisibleSlidesCount = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth < 768) {
-        visibleSlidesCount = 1.5;
-      } else if (screenWidth < 1024) {
-        visibleSlidesCount = 2;
-      } else {
-        visibleSlidesCount = 3;
-      }
-    }
+      visibleSlidesCount = screenWidth < 768 ? 1.5 : screenWidth < 1024 ? 2 : 3;
+    };
 
-    function updateDimensions() {
+    const updateDimensions = () => {
       const slideWidth = swiperSlides[0].offsetWidth + slideGap;
       const containerWidth = swiperWrapper.offsetWidth;
       const slidesWidth = swiperSlides.length * slideWidth;
       const maxTranslate = containerWidth - slidesWidth;
 
-      return {
-        slideWidth,
-        containerWidth,
-        maxTranslate,
-      };
-    }
+      return { slideWidth, containerWidth, maxTranslate };
+    };
 
-    function touchStart(index) {
-      return function (event) {
-        startPos = getPositionX(event);
-        isDragging = true;
-        swiperWrapper.classList.add("grabbing");
-      };
-    }
+    const touchStart = () => (event) => {
+      startPos = getPositionX(event);
+      isDragging = true;
+      swiperWrapper.classList.add("grabbing");
+    };
 
-    function touchEnd() {
+    const touchEnd = () => {
       isDragging = false;
       const movedBy = currentTranslate - prevTranslate;
 
       if (movedBy < -50 && currentIndex < swiperSlides.length - visibleSlidesCount) {
         currentIndex += 1;
       }
+
       if (movedBy > 50 && currentIndex > 0) {
         currentIndex -= 1;
       }
@@ -62,33 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
       setPositionByIndex();
       swiperWrapper.classList.remove("grabbing");
       updateArrows();
-    }
+    };
 
-    function touchMove(event) {
+    const touchMove = (event) => {
       if (isDragging) {
-        const { slideWidth, maxTranslate } = updateDimensions();
+        const { maxTranslate } = updateDimensions();
         const currentPosition = getPositionX(event);
-        currentTranslate = prevTranslate + currentPosition - startPos;
-        currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
+        currentTranslate = Math.max(Math.min(prevTranslate + currentPosition - startPos, 0), maxTranslate);
         swiperWrapper.style.transform = `translateX(${currentTranslate}px)`;
       }
-    }
+    };
 
-    function getPositionX(event) {
-      return event.type.includes("mouse") ? event.pageX : event.touches[0].clientX;
-    }
+    const getPositionX = (event) => (event.type.includes("mouse") ? event.pageX : event.touches[0].clientX);
 
-    function setPositionByIndex() {
+    const setPositionByIndex = () => {
       const { slideWidth, maxTranslate } = updateDimensions();
       currentTranslate = -currentIndex * slideWidth;
       currentTranslate = Math.max(Math.min(currentTranslate, 0), maxTranslate);
       prevTranslate = currentTranslate;
       swiperWrapper.style.transform = `translateX(${currentTranslate}px)`;
       updateScrollIndicator();
-    }
+    };
 
-    function updateScrollIndicator() {
-      // const { slideWidth } = updateDimensions();
+    const updateScrollIndicator = () => {
       const totalSlides = swiperSlides.length;
       const totalScrollableSlides = totalSlides - visibleSlidesCount;
 
@@ -97,27 +82,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
       topScroll.style.width = `${scrollWidth}px`;
       topScroll.style.transform = `translateX(${scrollLeft}px)`;
-    }
+    };
 
-    function updateArrows() {
-      const { maxTranslate } = updateDimensions();
+    const updateArrows = () => {
       leftArrow.classList.toggle("disabled", currentIndex <= 0);
       rightArrow.classList.toggle("disabled", currentIndex >= swiperSlides.length - visibleSlidesCount);
-    }
+    };
 
-    function toggleSwiperActions() {
+    const toggleSwiperActions = () => {
       const screenWidth = window.innerWidth;
 
-      if (swiperSlides.length <= 3) {
-        swiperActions.style.display = "none";
-      } else {
-        swiperActions.style.display = "flex";
-      }
+      swiperSlides.length <= 3 ? (swiperActions.style.display = "none") : (swiperActions.style.display = "flex");
 
       if ((screenWidth < 1024 && swiperSlides.length === 3) || swiperSlides.length === 2) {
         swiperActions.style.display = "flex";
       }
-    }
+    };
 
     swiperSlides.forEach((slide) => {
       slide.addEventListener("touchstart", touchStart());

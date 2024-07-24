@@ -1,5 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // footer menu and burger resp menu
+document.addEventListener("DOMContentLoaded", () => {
   const toggles = document.querySelectorAll(".footer_dropdown-toggle");
   const dropdowns = document.querySelectorAll(".footer_dropdown");
 
@@ -16,11 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       parentDropdown.classList.toggle("open");
       const dropdownList = parentDropdown.querySelector(".footer_dropdown-list");
-      if (parentDropdown.classList.contains("open")) {
-        dropdownList.style.maxHeight = dropdownList.scrollHeight + "px";
-      } else {
-        dropdownList.style.maxHeight = "0";
-      }
+      dropdownList.style.maxHeight = parentDropdown.classList.contains("open") ? `${dropdownList.scrollHeight}px` : "0";
     });
   });
 });
